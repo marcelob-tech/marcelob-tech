@@ -28,7 +28,7 @@ Tenho mais de 8 anos de experiência desenvolvendo sistemas corporativos — esp
 
 
 <p align="center">
-  <img src="https://github.com/marcelob-tech/marcelob-tech/blob/output/github-contribution-grid-snake.svg" alt="snake animation" />
+  <img src="https://github.com/marcelob-tech/marcelob-tech/blob/output/github-contribution-grid-snake-dark.svg" alt="snake animation" />
 </p>
 
 
