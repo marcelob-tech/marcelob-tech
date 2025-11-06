@@ -1,9 +1,9 @@
-name: 💾 Daily Commit (Fun Edition)
+name: 💾 Smart Commit Schedule
 
 on:
   schedule:
-    - cron: "0 12 * * *" # Executa todos os dias às 12h UTC (09h da manhã no Brasil)
-  workflow_dispatch: # Permite rodar manualmente
+    - cron: "0 12 * * *" # roda todo dia às 12h UTC (~09h Brasília)
+  workflow_dispatch: # permite rodar manualmente
 
 permissions:
   contents: write
@@ -15,9 +15,23 @@ jobs:
       - name: 🧩 Checkout
         uses: actions/checkout@v4
 
-      - name: 🧠 Gerar commit com emoji do dia
+      - name: 🤖 Verificar se deve rodar hoje
+        id: schedule
         run: |
-          # Define emoji conforme o dia da semana
+          # Define o padrão de 8 dias: 2 sim, 1 não, 3 sim, 1 não, 2 sim, 1 não
+          pattern=(1 1 0 1 1 1 0 1 1 0) # 0 = pula, 1 = executa
+          today=$(($(date +%j) % ${#pattern[@]}))
+          should_run=${pattern[$today]}
+          echo "today_index=$today"
+          echo "should_run=$should_run" >> $GITHUB_ENV
+          if [ "$should_run" -eq 0 ]; then
+            echo "🟡 Dia de descanso, sem commit hoje."
+            exit 0
+          fi
+
+      - name: 🧠 Gerar commit com emoji do dia
+        if: env.should_run == '1'
+        run: |
           case $(date +%u) in
             1) emoji="💻 Segunda de foco!";;
             2) emoji="⚙️ Terça produtiva!";;
@@ -28,12 +42,9 @@ jobs:
             7) emoji="🌴 Domingo relaxando e versionando!";;
           esac
 
-          # Atualiza arquivo de log
           echo "update $(date)" >> log.txt
-
-          # Configura Git e envia o commit
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add log.txt
-          git commit -m "$emoji ($(date '+%d/%m/%Y %H:%M'))" || echo "Nada novo para commitar"
+          git commit -m "$emoji ($(date '+%d/%m/%Y %H:%M'))" || echo "Nada para commitar"
           git push
