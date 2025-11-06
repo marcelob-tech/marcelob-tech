@@ -1,0 +1,39 @@
+name: 💾 Daily Commit (Fun Edition)
+
+on:
+  schedule:
+    - cron: "0 12 * * *" # Executa todos os dias às 12h UTC (09h da manhã no Brasil)
+  workflow_dispatch: # Permite rodar manualmente
+
+permissions:
+  contents: write
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧩 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🧠 Gerar commit com emoji do dia
+        run: |
+          # Define emoji conforme o dia da semana
+          case $(date +%u) in
+            1) emoji="💻 Segunda de foco!";;
+            2) emoji="⚙️ Terça produtiva!";;
+            3) emoji="☕ Quarta de código!";;
+            4) emoji="🔥 Quinta intensa!";;
+            5) emoji="🚀 Sextou com commits!";;
+            6) emoji="😎 Sábado leve, mas com código!";;
+            7) emoji="🌴 Domingo relaxando e versionando!";;
+          esac
+
+          # Atualiza arquivo de log
+          echo "update $(date)" >> log.txt
+
+          # Configura Git e envia o commit
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add log.txt
+          git commit -m "$emoji ($(date '+%d/%m/%Y %H:%M'))" || echo "Nada novo para commitar"
+          git push
