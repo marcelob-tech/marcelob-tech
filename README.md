@@ -21,19 +21,16 @@ Tenho mais de 8 anos de experiência desenvolvendo sistemas corporativos — esp
 </div>
 
 
-
 <div align="center">
-
   <img height="160" src="https://github-readme-stats.vercel.app/api?username=marcelob-tech&show_icons=true&theme=vision-friendly-dark&title_color=ffff00&text_color=00ffff&icon_color=ff00ff&hide_border=true" />
-
   <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=marcelob-tech&layout=compact&theme=vision-friendly-dark&title_color=ffff00&text_color=00ffff&hide_border=true" />
-
 </div>
 
 
 <p align="center">
-  <img src="https://github.com/marcelob-tech/marcelob-tech/blob/output/github-contribution-grid-snake.svg" />
+  <img src="https://github.com/marcelob-tech/marcelob-tech/blob/output/github-contribution-grid-snake.svg" alt="snake animation" />
 </p>
+
 
 <p align="center">
   <b>“Code. Build. Learn. Repeat.”</b> 🚀  
