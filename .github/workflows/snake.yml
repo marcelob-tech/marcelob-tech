@@ -2,11 +2,14 @@ name: Generate Snake 🐍
 
 on:
   schedule:
-    - cron: "0 0 * * *" # executa 1x por dia (meia-noite UTC)
-  workflow_dispatch: # permite rodar manualmente
+    - cron: "0 0 * * *" # Executa 1x por dia (meia-noite UTC)
+  workflow_dispatch:
   push:
     branches:
       - master
+
+permissions:
+  contents: write  # Permite push no repositório
 
 jobs:
   build:
@@ -15,9 +18,11 @@ jobs:
 
     steps:
       - name: 🔍 Checkout do repositório
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # evita conflito com tokens padrão
 
-      - name: 🐍 Gerar animação da cobrinha
+      - name: 🐍 Gerar animação da cobrinha (tema neon)
         uses: Platane/snk@v3
         with:
           github_user_name: marcelob-tech
@@ -31,5 +36,6 @@ jobs:
         with:
           target_branch: output
           build_dir: dist
+          keep_history: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
