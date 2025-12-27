@@ -54,10 +54,10 @@ Always seeking the balance between **clean code, innovation, and real impact**.
   <img height="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
 </p>
 
-<div align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=marcelob-tech&show_icons=true&theme=vision-friendly-dark&title_color=ffff00&text_color=00ffff&icon_color=ff00ff&hide_border=true" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=marcelob-tech&layout=compact&theme=vision-friendly-dark&title_color=ffff00&text_color=00ffff&hide_border=true" />
-</div>
+<!-- <div align="center"> -->
+  <!-- <img height="160" src="https://github-readme-stats.vercel.app/api?username=marcelob-tech&show_icons=true&theme=vision-friendly-dark&title_color=ffff00&text_color=00ffff&icon_color=ff00ff&hide_border=true" />
+  <!-- <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=marcelob-tech&layout=compact&theme=vision-friendly-dark&title_color=ffff00&text_color=00ffff&hide_border=true" /> -->
+<!-- </div> -->
 
 <p align="center">
   <img src="https://github.com/marcelob-tech/marcelob-tech/blob/output/github-contribution-grid-snake-dark.svg" alt="snake animation" />
